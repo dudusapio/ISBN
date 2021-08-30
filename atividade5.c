@@ -39,7 +39,7 @@ int isbn_dv(char isbn[10]){
     }
 }
 int main(void){
-    char x[15];
+    char x[15] ;
     strcpy(x,"089237010");
     isbn_dv(x);
 }
