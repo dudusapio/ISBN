@@ -1,3 +1,12 @@
+/*−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+2 ∗ UNIFAL − Universidade Federal de Alfenas .
+3 ∗ BACHARELADO EM CIENCIA DA COMPUTACAO.
+4 ∗ Trabalho . . : Atividade 5
+5 ∗ Disciplina : Programacao
+6 ∗ Professor . : Luiz Eduardo da Silva
+7 ∗ Aluno . . . . . : Eduardo Sapio Saccardo
+8 ∗ Data . . . . . . : 01/09/2021
+9 ∗−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,10 +46,31 @@ int isbn_dv(char isbn[10]){
     for( i = 0; i < 9; i++){
         printf("s2[%d] = %d\n",i,s2[i]);
     }
+    // if(s2[8] / 11 != 10){
+    //     verificador = (s2[8] / 11) % 10;
+    // }
+    // else{
+
+    // }
+    verificador = s2[8] / 11 == 10 ? 10 : (s2[8] / 11) - 10;
+    return verificador;
+   // printf("verificador = %d",verificador);
+
 }
 int main(void){
-    char x[15] ;
-    strcpy(x,"089237010");
-    isbn_dv(x);
+    char x[15];
+    int i;
+        do{
+            scanf("%s", x);
+            if(strcmp(x,"000000000") == 0){ // esse if e para abortar o programa se a entrada for 000000000
+                exit(1);
+            } 
+            else{
+                
+                isbn_dv(x);
+                printf("%d\n",isbn_dv(x));
+            }
+        } while(strcmp(x,"000000000") != 0); // nao pega a primeira entrada se ela for 000000000 
+    
 }
 

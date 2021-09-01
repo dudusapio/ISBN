@@ -6,4 +6,7 @@ int main (void){
     int a = x % 11;
     int b = y % 11;
     printf("a = %d   b = %d",a,b);
+    
+    int k = 119 / 11;
+    printf(" k = %d",k);
 }
