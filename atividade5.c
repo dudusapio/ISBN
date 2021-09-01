@@ -27,8 +27,9 @@ int isbn_dv(char isbn[10]){
     v[8] = num / 100000000 % 10;
 
     for( i = 0; i < 9 ; i ++){
-    printf("v[%d] = %d\n",i,v[i]);
+    printf(" v[%d] = %d  ",i,v[i]);
     }
+    printf("\n");
     x = 7;
     
     s1[0] = 0;
@@ -37,25 +38,19 @@ int isbn_dv(char isbn[10]){
         x--;
     }
     for( i = 0; i < 9; i++){
-        printf("s1[%d] = %d\n",i,s1[i]);
+        printf("s1[%d] = %d  ",i,s1[i]);
     }
+    printf("\n");
     s2[0] = 0;
     for( i = 1; i < 9; i ++){
         s2[i] = s2[i - 1] + s1[i];
     }
     for( i = 0; i < 9; i++){
-        printf("s2[%d] = %d\n",i,s2[i]);
+        printf("s2[%d] = %d  ",i,s2[i]);
     }
-    // if(s2[8] / 11 != 10){
-    //     verificador = (s2[8] / 11) % 10;
-    // }
-    // else{
-
-    // }
-    verificador = s2[8] / 11 == 10 ? 10 : (s2[8] / 11) - 10;
+    printf("\n");
+    verificador = s2[8] / 11 == 10 ? 10 : (s2[8] / 11) % 10;
     return verificador;
-   // printf("verificador = %d",verificador);
-
 }
 int main(void){
     char x[15];
@@ -64,11 +59,13 @@ int main(void){
             scanf("%s", x);
             if(strcmp(x,"000000000") == 0){ // esse if e para abortar o programa se a entrada for 000000000
                 exit(1);
-            } 
+            }
             else{
-                
-                isbn_dv(x);
-                printf("%d\n",isbn_dv(x));
+                i = isbn_dv(x);
+                if(i == 10)
+                    printf("%s-X\n",x);
+                else
+                    printf("%s-%d\n",x,isbn_dv(x));
             }
         } while(strcmp(x,"000000000") != 0); // nao pega a primeira entrada se ela for 000000000 
     
