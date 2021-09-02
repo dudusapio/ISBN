@@ -13,30 +13,26 @@
 
 int isbn_dv(char isbn[10]){
     int v[10],s1[10],s2[10],verificador,i,x;
-    int  num = atoi(isbn);
-    //v[0] = isbn[0] - '0';
-    //printf("num = %d",num);
-    
-    v[0] = num / 1 % 10;
-    v[1] = num / 10 % 10;
-    v[2] = num / 100 % 10;
-    v[3] = num / 1000 % 10;
-    v[4] = num / 10000 % 10;
-    v[5] = num / 100000 % 10;
-    v[6] = num / 1000000 % 10;
-    v[7] = num / 10000000 % 10;
-    v[8] = num / 100000000 % 10;
+    v[0] = isbn[0] - '0';
+    v[1] = isbn[1] - '0';
+    v[2] = isbn[2] - '0';
+    v[3] = isbn[3] - '0';
+    v[4] = isbn[4] - '0';
+    v[5] = isbn[5] - '0';
+    v[6] = isbn[6] - '0';
+    v[7] = isbn[7] - '0';
+    v[8] = isbn[8] - '0';
 
     for( i = 0; i < 9 ; i ++){
     printf(" v[%d] = %d  ",i,v[i]);
     }
     printf("\n");
-    x = 7;
+    x = 1;
     
     s1[0] = 0;
     for( i = 1; i < 9; i++){
         s1[i] = s1[i - 1] + v[x];
-        x--;
+        x++;
     }
     for( i = 0; i < 9; i++){
         printf("s1[%d] = %d  ",i,s1[i]);
