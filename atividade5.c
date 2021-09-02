@@ -14,6 +14,7 @@
 int isbn_dv(char isbn[10]){
     int v[10],s1[10],s2[10],verificador,i,x;
     int  num = atoi(isbn);
+    //v[0] = isbn[0] - '0';
     //printf("num = %d",num);
     
     v[0] = num / 1 % 10;
@@ -57,15 +58,12 @@ int main(void){
     int i;
         do{
             scanf("%s", x);
-            if(strcmp(x,"000000000") == 0){ // esse if e para abortar o programa se a entrada for 000000000
-                exit(1);
-            }
-            else{
+            if(strcmp(x,"000000000") != 0){ // esse if e para abortar o programa se a entrada for 000000000
                 i = isbn_dv(x);
                 if(i == 10)
                     printf("%s-X\n",x);
                 else
-                    printf("%s-%d\n",x,isbn_dv(x));
+                    printf("%s-%d\n",x,i);
             }
         } while(strcmp(x,"000000000") != 0); // nao pega a primeira entrada se ela for 000000000 
     
